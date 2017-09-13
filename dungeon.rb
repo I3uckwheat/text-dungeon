@@ -15,7 +15,6 @@ class Dungeon
     show_current_description
   end
 
-
   def show_current_description
     puts find_room_in_dungeon(@player.location).full_description
   end
@@ -25,7 +24,7 @@ class Dungeon
   end
 
   def go(direction)
-    puts "You go " + direction.to_s
+    puts 'You go ' + direction.to_s
     @player.location = find_room_in_dungeon(direction)
     show_current_description
   end
@@ -53,13 +52,12 @@ class Dungeon
   end
 
   # create main dungeon object
-  my_dungeon = Dungeon.new("Alice TheeCat")
+  my_dungeon = Dungeon.new('Alice TheeCat')
 
   # add rooms to dungeon
-  my_dungeon.add_room(:largecave, "Large Cave", "a large cavernous cave", {west: :smallcave})
-  my_dungeon.add_room(:smallcave, "Small Cave", "a small claustrophobic cave", {east: :largecave})
+  my_dungeon.add_room(:largecave, 'Large Cave', 'a large cavernous cave', west: :smallcave)
+  my_dungeon.add_room(:smallcave, 'Small Cave', 'a small claustrophobic cave', east: :largecave)
 
   # start the dungeon by placing the player in the large cave
   my_dungeon.start(:largecave)
-
 end
